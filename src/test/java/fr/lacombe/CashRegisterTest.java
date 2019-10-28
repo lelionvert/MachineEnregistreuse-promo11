@@ -16,7 +16,7 @@ class CashRegisterTest {
     static Stream<Arguments> priceProvider() {
         return Stream.of(
                 arguments(Price.valueOf(1.2), Quantity.valueOf(1), Price.valueOf(1.2)),
-                arguments(Price.valueOf(1.2), Quantity.valueOf(2.5), Price.valueOf(3)),
+                arguments(Price.valueOf(1.2), Quantity.valueOf(2.525), Price.valueOf(3.03)),
                 arguments(Price.valueOf(1.2), Quantity.valueOf(3.0), Price.valueOf(3.6))
         );
     }
@@ -32,11 +32,5 @@ class CashRegisterTest {
 
         // Then
         assertThat(total).isEqualTo(result);
-    }
-
-    @ParameterizedTest
-    @ValueSource(doubles = {2.3, 5.4, 2})
-    void test_flyweight(double value) {
-        Assertions.assertSame(Price.valueOf(value), Price.valueOf(value));
     }
 }

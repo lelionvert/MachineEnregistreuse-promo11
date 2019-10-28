@@ -1,8 +1,11 @@
 package fr.lacombe;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 class Quantity {
+    private final static Map<Double, Quantity> mapValueQuantity = new HashMap<>();
     private final double value;
 
     private Quantity(double value) {
@@ -10,7 +13,7 @@ class Quantity {
     }
 
     static Quantity valueOf(double value) {
-        return new Quantity(value);
+        return mapValueQuantity.computeIfAbsent(value, Quantity::new);
     }
 
     double multiplyBy(double value) {
