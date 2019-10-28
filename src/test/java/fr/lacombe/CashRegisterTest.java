@@ -68,6 +68,6 @@ public class CashRegisterTest {
         String itemCode = "BANANA";
         PriceQuery priceQuery = new PriceQuery(apple, banana);
 
-        Assertions.assertThat(priceQuery.findPriceList(itemCode)).isEqualTo(Price.valueOf(1.90));
+        Assertions.assertThat(priceQuery.findPrice(itemCode)).isEqualTo(Price.valueOf(1.90));
     }
 }
