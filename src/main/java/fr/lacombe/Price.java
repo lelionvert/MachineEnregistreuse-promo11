@@ -13,7 +13,11 @@ class Price {
     }
 
     static Price valueOf(double value) {
-        return new Price((double) round(value * 100d) / 100d);
+        return new Price(roundToTwoDigits(value));
+    }
+
+    private static double roundToTwoDigits(double value) {
+        return (double) round(value * 100d) / 100d;
     }
 
     Price multiplyBy(double quantity) {
