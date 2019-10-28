@@ -14,14 +14,14 @@ class CashRegisterTest {
     static Stream<Arguments> priceProvider() {
         return Stream.of(
                 arguments(new Price(1.2), 1, new Price(1.2)),
-                arguments(new Price(1.2), 2, new Price(2.4)),
-                arguments(new Price(3.5), 4, new Price(14))
+                arguments(new Price(1.2), 2.5, new Price(3)),
+                arguments(new Price(1.2), 3.0, new Price(3.6))
         );
     }
 
     @ParameterizedTest(name = "total is {2} for price:{0} and quantity:{1}")
     @MethodSource("priceProvider")
-    void cash_register_calculates_total_price(Price price, int quantity, Price result) {
+    void cash_register_calculates_total_price(Price price, double quantity, Price result) {
         // Given
         CashRegister cashRegister = new CashRegister();
 
