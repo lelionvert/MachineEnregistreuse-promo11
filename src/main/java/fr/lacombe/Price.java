@@ -23,8 +23,8 @@ class Price {
         return (double) round(value * 100d) / 100d;
     }
 
-    Price multiplyBy(double quantity) {
-        return valueOf(value * quantity);
+    Price multiplyBy(Quantity quantity) {
+        return valueOf(value * quantity.getValue());
     }
 
     @Override
