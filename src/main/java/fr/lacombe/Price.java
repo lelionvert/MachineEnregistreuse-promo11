@@ -6,12 +6,11 @@ public class Price {
     private final double price;
 
     private Price(double price) {
-
         this.price = price >= 0 ? price : Math.abs(price);
     }
 
     static Price valueOf(double value) {
-        return new Price(value);
+        return new Price(roundTwoDecimals(value));
     }
 
     @Override
@@ -29,17 +28,14 @@ public class Price {
 
     @Override
     public String toString() {
-        return "Price{" +
-                "price=" + price +
-                '}';
+        return "Price { price=" + price + '}';
     }
 
     Price multiplyBy(double quantity) {
-        double round_price = roundTwoDecimals(price * quantity);
-        return valueOf(round_price);
+        return valueOf(price * quantity);
     }
 
-    private double roundTwoDecimals(double value) {
+    private static double roundTwoDecimals(double value) {
         return Math.round(value * 100d) / 100d;
     }
 }
