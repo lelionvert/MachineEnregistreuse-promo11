@@ -19,4 +19,17 @@ class CashRegisterTest {
         // Then
         assertThat(total).isEqualTo(1.2);
     }
+
+    @Test
+    void cash_register_returns_price_multiple_article() {
+        // Given
+        CashRegister cashRegister = new CashRegister();
+        double price = 1.2, quantity = 2;
+
+        // When
+        double total = cashRegister.total(price, quantity);
+
+        // Then
+        assertThat(total).isEqualTo(2.4);
+    }
 }
