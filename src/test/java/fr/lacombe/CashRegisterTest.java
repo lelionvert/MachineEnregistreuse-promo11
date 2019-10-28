@@ -3,6 +3,7 @@ package fr.lacombe;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,11 +12,11 @@ public class CashRegisterTest
 {
     private Object[] parametersForCreate_cash_register_price_concept() {
         return new Object[][] {
-                {new Price(-1.20), 1.0, new Price(1.20)},
-                {new Price(1.20), 0.0, new Price(0.0)},
-                {new Price(1.20), 1.0, new Price(1.20)},
-                {new Price(1.20), 2.0, new Price(2.40)},
-                {new Price(1.20), 5.0, new Price(6.00)}
+                {Price.valueOf(-1.20), 1.0, Price.valueOf(1.20)},
+                {Price.valueOf(1.20), 0.0, Price.valueOf(0.0)},
+                {Price.valueOf(1.20), 1.0, Price.valueOf(1.20)},
+                {Price.valueOf(1.20), 2.0, Price.valueOf(2.40)},
+                {Price.valueOf(1.20), 5.0, Price.valueOf(6.00)}
         };
     }
 
