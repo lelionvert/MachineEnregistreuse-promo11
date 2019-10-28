@@ -43,9 +43,9 @@ public class CashRegisterTest {
         };
     }
 
-    ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
-    ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
-    PriceQuery priceQuery = new PriceQuery(apple, banana);
+    private ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
+    private ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
+    private PriceQuery priceQuery = new InmemoryCatalog(apple, banana);
 
     @Test
     @Parameters
@@ -57,4 +57,5 @@ public class CashRegisterTest {
     public void search_an_unknow_item() {
         Assertions.assertThat(priceQuery.findPrice("PEACH")).isNull();
     }
+
 }
