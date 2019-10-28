@@ -11,7 +11,7 @@ class Quantity {
         return new Quantity(value);
     }
 
-    double getValue() {
-        return value;
+    double multiplyBy(double value) {
+        return value * this.value;
     }
 }

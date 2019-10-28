@@ -24,7 +24,7 @@ class Price {
     }
 
     Price multiplyBy(Quantity quantity) {
-        return valueOf(value * quantity.getValue());
+        return valueOf(quantity.multiplyBy(value));
     }
 
     @Override
