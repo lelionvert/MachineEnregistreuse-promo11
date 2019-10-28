@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\lenovo 3\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\lenovo 3\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\nunit.engine.netstandard.dll" t="Include" />
+    <e p="C:\Users\lenovo 3\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\lenovo 3\.nuget\packages\nunit3testadapter\3.13.0\build\netcoreapp1.0\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\lenovo 3\.Rider2019.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\lenovo 3\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\lenovo 3\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_CaisseEnregistreuse.-1979383259.00" t="ExcludeRecursive" />
+    <e p="C:\Users\lenovo 3\Desktop\MachineEnregistreuse-promo11\CaisseEnregistreuse" t="IncludeFlat">
+      <e p="CaisseEnregistreuse" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CaisseEnregistreuse.csproj" t="IncludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="CaisseEnregistreuse.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="CaisseEnregistreuse.sln" t="IncludeFlat" />
+      <e p="CaisseEnregistreuse.Test" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CaisseEnregistreuse.Test.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="CaisseEnregistreuse.Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
