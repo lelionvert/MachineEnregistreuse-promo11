@@ -35,6 +35,10 @@ public class Price {
         return valueOf(price * quantity);
     }
 
+    Price multiplyBy(Quantity quantity) {
+        return valueOf(quantity.multiply(price));
+    }
+
     private static double roundTwoDecimals(double value) {
         return Math.round(value * 100d) / 100d;
     }

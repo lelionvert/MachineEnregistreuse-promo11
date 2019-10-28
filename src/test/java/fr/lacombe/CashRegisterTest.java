@@ -34,4 +34,18 @@ public class CashRegisterTest
         Assertions.assertThat(total).isEqualTo(expected);
     }
 
+    @Test
+    public void quantity_creation() {
+        // Given
+        double value = 1.20;
+        Price price = Price.valueOf(value);
+        Quantity quantity = Quantity.valueOf(2);
+
+        // When
+        Price total = new CashRegister().total(price, quantity);
+
+        // Then
+        Assertions.assertThat(total).isEqualTo(Price.valueOf(2.40));
+
+    }
 }
