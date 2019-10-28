@@ -1,44 +1,32 @@
 package fr.lacombe;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-/**
- * Unit test for simple CashRegister.
- */
+@RunWith(JUnitParamsRunner.class)
 public class CashRegisterTest
 {
-    @Test
-    public void create_cash_register() {
-        CashRegister cash_register = new CashRegister();
-        double price = 1.20;
-        double quantity = 1;
 
-        double total = cash_register.total(price, quantity);
-
-        Assertions.assertThat(total).isEqualTo(1.20);
+    private Object[] parametersForCreate_cash_register() {
+        return new Object[][] {
+                {1.20, 0.0, 0.0},
+                {1.20, 1.0, 1.20},
+                {1.20, 2.0, 2.40},
+                {1.20, 5.0, 6.00}
+        };
     }
 
     @Test
-    public void total_when_there_is_nothing() {
+    @Parameters
+    public void create_cash_register(final double price, final double quantity, final double expected) {
         CashRegister cash_register = new CashRegister();
-        double price = 1.20;
-        double quantity = 0;
 
         double total = cash_register.total(price, quantity);
 
-        Assertions.assertThat(total).isEqualTo(0);
-    }
-
-    @Test
-    public void total_when_there_is_two_elements() {
-        CashRegister cash_register = new CashRegister();
-        double price = 1.20;
-        double quantity = 2;
-
-        double total = cash_register.total(price, quantity);
-
-        Assertions.assertThat(total).isEqualTo(2.40);
+        Assertions.assertThat(total).isEqualTo(expected);
     }
 
     @Test
