@@ -10,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class PriceQueryTest {
-    PriceQuery priceQuery = new InmemoryCatalog(
+    PriceQuery priceQuery = new InMemoryCatalog(
             new ItemReference("APPLE", 1.2),
             new ItemReference("BANANA", 1.9)
     );
