@@ -4,21 +4,19 @@ import java.util.Objects;
 
 final class Price {
 
-    private final double price;
+    private final double amount;
 
-    Price(double price) {
-        this.price = price;
+    Price(double amount) {
+        this.amount = amount;
     }
 
-    double getPrice() {
-        return price;
+    double getAmount() {
+        return amount;
     }
 
     @Override
     public String toString() {
-        return "Price{" +
-                "price=" + price +
-                '}';
+        return "price=" + amount;
     }
 
     @Override
@@ -26,11 +24,11 @@ final class Price {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Price price1 = (Price) o;
-        return Double.compare(price1.price, price) == 0;
+        return Double.compare(price1.amount, amount) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price);
+        return Objects.hash(amount);
     }
 }
