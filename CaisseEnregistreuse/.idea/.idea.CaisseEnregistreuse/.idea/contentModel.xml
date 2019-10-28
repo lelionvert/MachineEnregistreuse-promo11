@@ -13,8 +13,8 @@
     <e p="C:\Users\lenovo 3\Desktop\MachineEnregistreuse-promo11\CaisseEnregistreuse" t="IncludeFlat">
       <e p="CaisseEnregistreuse" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CaisseEnregistreuse.cs" t="Include" />
         <e p="CaisseEnregistreuse.csproj" t="IncludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -22,10 +22,12 @@
             </e>
           </e>
         </e>
+        <e p="Price.cs" t="Include" />
       </e>
       <e p="CaisseEnregistreuse.sln" t="IncludeFlat" />
       <e p="CaisseEnregistreuse.Test" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CaisseEnregistreuse.Test.cs" t="Include" />
         <e p="CaisseEnregistreuse.Test.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -34,7 +36,6 @@
             </e>
           </e>
         </e>
-        <e p="UnitTest1.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>

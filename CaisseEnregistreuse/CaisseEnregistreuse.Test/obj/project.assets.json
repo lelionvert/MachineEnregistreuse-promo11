@@ -1447,6 +1447,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "CaisseEnregistreuse/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "compile": {
+          "bin/placeholder/CaisseEnregistreuse.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CaisseEnregistreuse.dll": {}
+        }
       }
     }
   },
@@ -5291,10 +5301,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "CaisseEnregistreuse/1.0.0": {
+      "type": "project",
+      "path": "../CaisseEnregistreuse/CaisseEnregistreuse.csproj",
+      "msbuildProject": "../CaisseEnregistreuse/CaisseEnregistreuse.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "CaisseEnregistreuse >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
       "NFluent >= 2.6.0",
       "NUnit3TestAdapter >= 3.13.0",
@@ -5326,7 +5342,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {
+              "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

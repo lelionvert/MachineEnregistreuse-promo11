@@ -15,7 +15,11 @@
     },
     "frameworks": {
       "netcoreapp3.0": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {
+            "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
