@@ -11,9 +11,9 @@ namespace CaisseEnregistreuse
             Value = value;
         }
 
-        public static Price operator*(Price price, int quantity)
+        public static Price operator*(Price price, Quantity quantity)
         {
-            return new Price(price.Value * quantity);
+            return new Price(price.Value * quantity.Value);
         }
 
         public static Price ValueOf(double value)

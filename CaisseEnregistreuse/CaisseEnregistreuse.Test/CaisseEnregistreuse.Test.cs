@@ -10,9 +10,9 @@ namespace CaisseEnregistreuse
         {
             get
             {
-                yield return new TestCaseData(Price.ValueOf(1.20), 1, Price.ValueOf(1.20));
-                yield return new TestCaseData(Price.ValueOf(2.50), 3, Price.ValueOf(7.50));
-                yield return new TestCaseData(Price.ValueOf(12), 3, Price.ValueOf(36));
+                yield return new TestCaseData(Price.ValueOf(1.20), Quantity.ValueOf(1), Price.ValueOf(1.20));
+                yield return new TestCaseData(Price.ValueOf(2.50), Quantity.ValueOf(3), Price.ValueOf(7.50));
+                yield return new TestCaseData(Price.ValueOf(12), Quantity.ValueOf(3), Price.ValueOf(36));
             }
         }
     }
@@ -25,7 +25,7 @@ namespace CaisseEnregistreuse
         }
 
         [TestCaseSource(typeof(MyDataClass), "TestCases")]
-        public void TotalTest(Price price, int quantity, Price expected)
+        public void TotalTest(Price price, Quantity quantity, Price expected)
         {
             var result = CaisseEnregistreuse.Total(price, quantity);
             Check.That(result).IsEqualTo(expected);
