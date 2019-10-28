@@ -1,11 +1,14 @@
 package fr.lacombe;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import static java.lang.Math.round;
 
 class Price {
 
+    private final static Map<Double, Price> mapValuePrice = new HashMap<>();
     private final double value;
 
     private Price(double value) {
@@ -13,7 +16,7 @@ class Price {
     }
 
     static Price valueOf(double value) {
-        return new Price(roundToTwoDigits(value));
+        return mapValuePrice.computeIfAbsent(value, v -> new Price(roundToTwoDigits(v)));
     }
 
     private static double roundToTwoDigits(double value) {

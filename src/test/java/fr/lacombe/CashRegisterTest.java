@@ -1,8 +1,10 @@
 package fr.lacombe;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -30,5 +32,11 @@ class CashRegisterTest {
 
         // Then
         assertThat(total).isEqualTo(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {2.3, 5.4, 2, 0, 7.9})
+    void test_flyweight(double value) {
+        Assertions.assertSame(Price.valueOf(value), Price.valueOf(value));
     }
 }
