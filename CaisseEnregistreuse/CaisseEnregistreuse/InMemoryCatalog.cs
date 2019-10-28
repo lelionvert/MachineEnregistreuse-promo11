@@ -4,16 +4,16 @@ namespace CaisseEnregistreuse
 {
     public class InMemoryCatalog : IPriceQuery
     {
-        public readonly ItemReference[] ItemReferences;
+        private readonly ItemReference[] _itemReferences;
         
         public InMemoryCatalog(params ItemReference[] references)
         {
-            ItemReferences = references;
+            _itemReferences = references;
         }
 
         public Price FindPrice(string itemCode)
         {
-            var item = ItemReferences.SingleOrDefault(i => i.Name == itemCode);
+            var item = _itemReferences.SingleOrDefault(i => i.Name == itemCode);
 
             return item?.Price;
         }
