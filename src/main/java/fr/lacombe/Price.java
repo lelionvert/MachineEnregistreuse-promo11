@@ -1,6 +1,5 @@
 package fr.lacombe;
 
-import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class Price {
@@ -36,7 +35,11 @@ public class Price {
     }
 
     Price multiplyBy(double quantity) {
-        double round_price = Math.round(price * quantity * 100d) / 100d;
+        double round_price = roundTwoDecimals(price * quantity);
         return valueOf(round_price);
+    }
+
+    private double roundTwoDecimals(double value) {
+        return Math.round(value * 100d) / 100d;
     }
 }
