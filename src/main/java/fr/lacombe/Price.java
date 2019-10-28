@@ -31,10 +31,6 @@ public class Price {
         return "Price { price=" + price + '}';
     }
 
-    Price multiplyBy(double quantity) {
-        return valueOf(price * quantity);
-    }
-
     Price multiplyBy(Quantity quantity) {
         return valueOf(quantity.multiply(price));
     }
