@@ -12,11 +12,10 @@ class InMemoryCatalog implements PriceQuery {
 
     @Override
     public Price findPrice(String itemCode) {
-        for (ItemReference itemReference : itemReferences) {
-            if (itemReference.getItemCode().equals(itemCode)) {
-                return itemReference.getItemPrice();
-            }
-        }
-        return null;
+        return itemReferences.stream()
+                .filter(itemReference -> itemReference.getPriceByCode(itemCode) != null)
+                .findFirst()
+                .map(itemReference -> itemReference.getPriceByCode(itemCode))
+                .orElse(null);
     }
 }

@@ -9,11 +9,10 @@ class ItemReference {
         this.itemPrice = Price.valueOf(itemPrice);
     }
 
-    public String getItemCode() {
-        return itemCode;
-    }
-
-    public Price getItemPrice() {
-        return itemPrice;
+    Price getPriceByCode(String itemCode) {
+        if (this.itemCode.equals(itemCode)) {
+            return itemPrice;
+        }
+        return null;
     }
 }
