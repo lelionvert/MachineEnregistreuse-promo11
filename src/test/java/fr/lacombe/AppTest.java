@@ -2,12 +2,20 @@ package fr.lacombe;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 class AppTest {
     @Test
-    void shouldAnswerWithTrue() {
-        assertTrue(true);
+    void cash_register_returns_price_single_article() {
+        //Given
+        CashRegister cashRegister = new CashRegister();
+        double price = 1.2, quantity = 1;
+
+        //When
+        double total = cashRegister.total(price, quantity);
+
+        //Then
+        assertThat(total).isEqualTo(1.2);
     }
 }
