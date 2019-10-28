@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 class Quantity {
-    private final static Map<Double, Quantity> mapValueQuantity = new HashMap<>();
+    private final static Map<Double, Quantity> MAP_VALUE_QUANTITY = new HashMap<>();
     private final double value;
 
     private Quantity(double value) {
@@ -13,7 +13,7 @@ class Quantity {
     }
 
     static Quantity valueOf(double value) {
-        return mapValueQuantity.computeIfAbsent(value, Quantity::new);
+        return MAP_VALUE_QUANTITY.computeIfAbsent(value, Quantity::new);
     }
 
     double multiplyBy(double value) {

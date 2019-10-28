@@ -8,7 +8,7 @@ import static java.lang.Math.round;
 
 class Price {
 
-    private final static Map<Double, Price> mapValuePrice = new HashMap<>();
+    private final static Map<Double, Price> MAP_VALUE_PRICE = new HashMap<>();
     private final double value;
 
     private Price(double value) {
@@ -16,7 +16,7 @@ class Price {
     }
 
     static Price valueOf(double value) {
-        return mapValuePrice.computeIfAbsent(value, v -> new Price(roundToTwoDigits(v)));
+        return MAP_VALUE_PRICE.computeIfAbsent(value, v -> new Price(roundToTwoDigits(v)));
     }
 
     private static double roundToTwoDigits(double value) {
