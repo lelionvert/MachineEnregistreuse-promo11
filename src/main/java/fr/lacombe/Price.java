@@ -6,7 +6,7 @@ public final class Price {
     private final double price;
 
     Price(double price) {
-        this.price = price;
+        this.price = price >= 0 ? price : Math.abs(price);
     }
 
     final double getPrice() {
@@ -25,5 +25,12 @@ public final class Price {
     @Override
     public final int hashCode() {
         return Objects.hash(price);
+    }
+
+    @Override
+    public String toString() {
+        return "Price{" +
+                "price=" + price +
+                '}';
     }
 }

@@ -11,6 +11,7 @@ public class CashRegisterTest
 {
     private Object[] parametersForCreate_cash_register_price_concept() {
         return new Object[][] {
+                {new Price(-1.20), 1.0, new Price(1.20)},
                 {new Price(1.20), 0.0, new Price(0.0)},
                 {new Price(1.20), 1.0, new Price(1.20)},
                 {new Price(1.20), 2.0, new Price(2.40)},
