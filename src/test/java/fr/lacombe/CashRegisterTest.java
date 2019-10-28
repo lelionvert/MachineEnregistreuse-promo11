@@ -56,5 +56,20 @@ public class CashRegisterTest
         Assertions.assertThat(total).isEqualTo(expected);
     }
 
+    @Test
+    public void create_cash_register_with_two_price_elements() {
+        // Given
+        CashRegister cash_register = new CashRegister();
+        Price price = new Price(1.20);
+        double quantity = 2;
+
+        // When
+        Price total = cash_register.total(price, quantity);
+
+        // Then
+        Price expected = new Price(2.40);
+        Assertions.assertThat(total).isEqualTo(expected);
+    }
+
 
 }
