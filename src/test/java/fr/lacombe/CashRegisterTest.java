@@ -16,7 +16,8 @@ public class CashRegisterTest
                 {Price.valueOf(1.20), 0.0, Price.valueOf(0.0)},
                 {Price.valueOf(1.20), 1.0, Price.valueOf(1.20)},
                 {Price.valueOf(1.20), 2.0, Price.valueOf(2.40)},
-                {Price.valueOf(1.20), 5.0, Price.valueOf(6.00)}
+                {Price.valueOf(1.20), 5.0, Price.valueOf(6.00)},
+                {Price.valueOf(1.20), 3.0, Price.valueOf(3.60)}
         };
     }
 
