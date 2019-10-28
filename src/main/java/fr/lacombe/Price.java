@@ -2,16 +2,22 @@ package fr.lacombe;
 
 import java.util.Objects;
 
-final class Price {
+import static java.lang.Math.round;
+
+class Price {
 
     private final double value;
 
-    Price(double value) {
+    private Price(double value) {
         this.value = value;
     }
 
-    double getValue() {
-        return value;
+    static Price valueOf(double value) {
+        return new Price((double) round(value * 100d) / 100d);
+    }
+
+    Price multiplyBy(double quantity) {
+        return valueOf(value * quantity);
     }
 
     @Override

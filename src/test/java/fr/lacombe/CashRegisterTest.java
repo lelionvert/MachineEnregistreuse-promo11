@@ -13,9 +13,9 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 class CashRegisterTest {
     static Stream<Arguments> priceProvider() {
         return Stream.of(
-                arguments(new Price(1.2), 1, new Price(1.2)),
-                arguments(new Price(1.2), 2.5, new Price(3)),
-                arguments(new Price(1.2), 3.0, new Price(3.6))
+                arguments(Price.valueOf(1.2), 1, Price.valueOf(1.2)),
+                arguments(Price.valueOf(1.2), 2.5, Price.valueOf(3)),
+                arguments(Price.valueOf(1.2), 3.0, Price.valueOf(3.6))
         );
     }
 
