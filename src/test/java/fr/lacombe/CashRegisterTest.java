@@ -14,7 +14,7 @@ class CashRegisterTest {
         CashRegister cashRegister = new CashRegister();
 
         // When
-        Price total = cashRegister.total(price, quantity);
+        Price total = cashRegister.total(new Price(price), quantity);
 
         // Then
         assertThat(total).isEqualTo(new Price(result));

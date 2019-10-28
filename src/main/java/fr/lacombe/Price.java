@@ -3,10 +3,15 @@ package fr.lacombe;
 import java.util.Objects;
 
 final class Price {
+
     private final double price;
 
     Price(double price) {
         this.price = price;
+    }
+
+    double getPrice() {
+        return price;
     }
 
     @Override
