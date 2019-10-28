@@ -4,7 +4,7 @@ namespace CaisseEnregistreuse
 {
     public class Price
     {
-        public readonly double Value;
+        private readonly double Value;
 
         private Price(double value)
         {
@@ -13,7 +13,7 @@ namespace CaisseEnregistreuse
 
         public static Price operator*(Price price, Quantity quantity)
         {
-            return new Price(price.Value * quantity.Value);
+            return new Price(price.Value * quantity);
         }
 
         public static Price ValueOf(double value)
