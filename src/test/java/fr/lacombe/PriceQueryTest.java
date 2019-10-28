@@ -29,8 +29,8 @@ class PriceQueryTest {
     @BeforeEach
     void setUp() {
         priceQuery = new InMemoryCatalog(
-                new ItemReference("APPLE", 1.2),
-                new ItemReference("BANANA", 1.9)
+                ItemReference.createItemReference("APPLE", 1.2),
+                ItemReference.createItemReference("BANANA", 1.9)
         );
     }
 }

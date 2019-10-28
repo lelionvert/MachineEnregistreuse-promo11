@@ -4,9 +4,13 @@ class ItemReference {
     private final String itemCode;
     private final Price itemPrice;
 
-    ItemReference(String itemCode, double itemPrice) {
+    private ItemReference(String itemCode, Price itemPrice) {
         this.itemCode = itemCode;
-        this.itemPrice = Price.valueOf(itemPrice);
+        this.itemPrice = itemPrice;
+    }
+
+    static ItemReference createItemReference(String itemCode, double itemPrice) {
+        return new ItemReference(itemCode, Price.valueOf(itemPrice));
     }
 
     Price getPriceByCode(String itemCode) {
