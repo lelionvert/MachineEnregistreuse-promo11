@@ -19,5 +19,14 @@ public class CashRegisterTest
         Assertions.assertThat(total).isEqualTo(1.20);
     }
 
+    @Test
+    public void total_when_there_is_two_elements() {
+        CashRegister cash_register = new CashRegister();
+        double price = 1.20;
+        double quantity = 2;
 
+        double total = cash_register.total(price, quantity);
+
+        Assertions.assertThat(total).isEqualTo(2.40);
+    }
 }
