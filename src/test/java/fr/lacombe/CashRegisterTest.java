@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitParamsRunner.class)
 public class CashRegisterTest {
+
     private Object[] parametersForCreate_cash_register_price_concept() {
         return new Object[][]{
                 {Price.valueOf(-1.20), Quantity.valueOf(1.0), Price.valueOf(1.20)},
@@ -35,49 +36,25 @@ public class CashRegisterTest {
     }
 
 
-   /* private Object[] parametersForFind_the_price_given_an_item_code() {
+    private Object[] parametersForFind_the_price_given_one_item_code() {
         return new Object[][] {
-                {"APPLE",  1.20},
-                {"BANANA", 1.90}
+                {"APPLE", Price.valueOf(1.20)},
+                {"BANANA", Price.valueOf(1.90)}
         };
     }
 
+    ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
+    ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
+    PriceQuery priceQuery = new PriceQuery(apple, banana);
+
     @Test
     @Parameters
-    public void find_the_price_given_an_item_code(String item_code, Price unit_price) {
-        Plugin.Engine.Source.InMemory catalog = new Plugin.Engine.Source.InMemory(
-                new Item
-        )
-        Assertions.assertThat(PriceQuery(item_code).)
-
-    }*/
-
-    @Test
-    public void find_the_price_given_one_item_code() {
-        ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
-        String itemCode = "APPLE";
-        PriceQuery priceQuery = new PriceQuery(apple);
-
-        Assertions.assertThat(priceQuery.findPrice(itemCode)).isEqualTo(Price.valueOf(1.20));
-    }
-
-    @Test
-    public void find_the_price_given_two_item_code() {
-        ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
-        ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
-        String itemCode = "BANANA";
-        PriceQuery priceQuery = new PriceQuery(apple, banana);
-
-        Assertions.assertThat(priceQuery.findPrice(itemCode)).isEqualTo(Price.valueOf(1.90));
+    public void find_the_price_given_one_item_code(String item_code, Price unit_price) {
+        Assertions.assertThat(priceQuery.findPrice(item_code)).isEqualTo(unit_price);
     }
 
     @Test
     public void search_an_unknow_item() {
-        ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
-        ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
-        String itemCode = "PEACH";
-        PriceQuery priceQuery = new PriceQuery(apple, banana);
-
-        Assertions.assertThat(priceQuery.findPrice(itemCode)).isNull();
+        Assertions.assertThat(priceQuery.findPrice("PEACH")).isNull();
     }
 }
