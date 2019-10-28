@@ -15,6 +15,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="CaisseEnregistreuse.cs" t="Include" />
         <e p="CaisseEnregistreuse.csproj" t="IncludeRecursive" />
+        <e p="InMemoryCatalog.cs" t="Include" />
+        <e p="IPriceQuery.cs" t="Include" />
+        <e p="ItemReference.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -30,9 +33,6 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="CaisseEnregistreuse.Test.cs" t="Include" />
         <e p="CaisseEnregistreuse.Test.csproj" t="IncludeRecursive" />
-        <e p="InMemoryCatalog.cs" t="Include" />
-        <e p="IPriceQuery.cs" t="Include" />
-        <e p="ItemReference.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">

@@ -13,7 +13,7 @@ namespace CaisseEnregistreuse
 
         public Price FindPrice(string itemCode)
         {
-            var item = _itemReferences.SingleOrDefault(i => i.Name == itemCode);
+            var item = _itemReferences.SingleOrDefault(i => i.MatchByItemCode(itemCode));
 
             return item?.Price;
         }

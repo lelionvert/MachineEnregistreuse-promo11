@@ -10,5 +10,10 @@
             Name = name;
             Price = Price.ValueOf(price);
         }
+
+        public bool MatchByItemCode(string name)
+        {
+            return Name == name;
+        }
     }
 }
