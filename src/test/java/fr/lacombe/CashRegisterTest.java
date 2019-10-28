@@ -29,35 +29,26 @@ public class CashRegisterTest
         Assertions.assertThat(total).isEqualTo(expected);
     }
 
+    private Object[] parametersForCreate_cash_register_price_concept() {
+        return new Object[][] {
+                {new Price(1.20), 0.0, new Price(0.0)},
+                {new Price(1.20), 1.0, new Price(1.20)},
+                {new Price(1.20), 2.0, new Price(2.40)},
+                {new Price(1.20), 5.0, new Price(6.00)}
+        };
+    }
+
     @Test
-    public void create_cash_register_with_price_concept() {
+    @Parameters
+    public void create_cash_register_price_concept(final Price price, final double quantity, final Price expected) {
         // Given
         CashRegister cash_register = new CashRegister();
-        Price price = new Price(1.20);
-        double quantity = 1;
 
         // When
         Price total = cash_register.total(price, quantity);
 
         // Then
-        Price expected = price;
         Assertions.assertThat(total).isEqualTo(expected);
     }
-
-    @Test
-    public void create_cash_register_with_two_price_elements() {
-        // Given
-        CashRegister cash_register = new CashRegister();
-        Price price = new Price(1.20);
-        double quantity = 2;
-
-        // When
-        Price total = cash_register.total(price, quantity);
-
-        // Then
-        Price expected = new Price(2.40);
-        Assertions.assertThat(total).isEqualTo(expected);
-    }
-
 
 }
