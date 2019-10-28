@@ -1,5 +1,7 @@
 package fr.lacombe;
 
+import java.util.Optional;
+
 class ItemReference {
     private final String itemCode;
     private final Price itemPrice;
