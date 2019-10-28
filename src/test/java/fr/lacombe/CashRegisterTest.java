@@ -1,35 +1,22 @@
 package fr.lacombe;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 class CashRegisterTest {
-
-    @Test
-    void cash_register_returns_price_single_article() {
+    @ParameterizedTest
+    @CsvSource({"1.2, 1, 1.2", "1.2, 2, 2.4", "3.5, 4, 14"})
+    void cash_register_calculates_total_price(double price, int quantity, double result) {
         // Given
         CashRegister cashRegister = new CashRegister();
-        double price = 1.2, quantity = 1;
 
         // When
         double total = cashRegister.total(price, quantity);
 
         // Then
-        assertThat(total).isEqualTo(1.2);
-    }
-
-    @Test
-    void cash_register_returns_price_multiple_article() {
-        // Given
-        CashRegister cashRegister = new CashRegister();
-        double price = 1.2, quantity = 2;
-
-        // When
-        double total = cashRegister.total(price, quantity);
-
-        // Then
-        assertThat(total).isEqualTo(2.4);
+        assertThat(total).isEqualTo(result);
     }
 }
