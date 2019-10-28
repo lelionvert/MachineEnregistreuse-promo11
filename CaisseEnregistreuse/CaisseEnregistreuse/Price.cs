@@ -2,13 +2,23 @@
 
 namespace CaisseEnregistreuse
 {
-    public sealed class Price
+    public class Price
     {
         public readonly double Value;
 
-        public Price(double value)
+        private Price(double value)
         {
             Value = value;
+        }
+
+        public static Price operator*(Price price, int quantity)
+        {
+            return new Price(price.Value * quantity);
+        }
+
+        public static Price ValueOf(double value)
+        {
+            return new Price(value);
         }
         
         public override int GetHashCode()

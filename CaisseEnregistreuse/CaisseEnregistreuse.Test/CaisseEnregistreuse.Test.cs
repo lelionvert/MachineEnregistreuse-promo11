@@ -10,9 +10,9 @@ namespace CaisseEnregistreuse
         {
             get
             {
-                yield return new TestCaseData(new Price(1.20), 1, new Price(1.20));
-                yield return new TestCaseData(new Price(2.50), 3, new Price(7.50));
-                yield return new TestCaseData(new Price(12), 3, new Price(36));
+                yield return new TestCaseData(Price.ValueOf(1.20), 1, Price.ValueOf(1.20));
+                yield return new TestCaseData(Price.ValueOf(2.50), 3, Price.ValueOf(7.50));
+                yield return new TestCaseData(Price.ValueOf(12), 3, Price.ValueOf(36));
             }
         }
     }
