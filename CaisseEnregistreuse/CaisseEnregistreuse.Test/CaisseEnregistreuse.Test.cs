@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NFluent;
 using NUnit.Framework;
@@ -15,13 +16,34 @@ namespace CaisseEnregistreuse
                 yield return new TestCaseData(Price.ValueOf(12), Quantity.ValueOf(3), Price.ValueOf(36));
             }
         }
+
+        public static IEnumerable PriceQueryTestCases
+        {
+            get
+            {
+                yield return new TestCaseData("APPLE", 1.20);
+                yield return new TestCaseData("BANANA", 1.90);
+            }
+        }
+
+        public static IEnumerable PriceQueryNullTestCases
+        {
+            get { yield return new TestCaseData("PEACH", 2.40); }
+        }
     }
+
     [TestFixture]
     public class Tests
     {
+        private IPriceQuery priceQuery;
+        
         [SetUp]
         public void Setup()
         {
+            priceQuery = new InMemoryCatalog(
+                new ItemReference("APPLE", 1.20),
+                new ItemReference("BANANA", 1.90)
+            );
         }
 
         [TestCaseSource(typeof(MyDataClass), "TestCases")]
@@ -29,6 +51,26 @@ namespace CaisseEnregistreuse
         {
             var result = CaisseEnregistreuse.Total(price, quantity);
             Check.That(result).IsEqualTo(expected);
+        }
+        
+        
+
+        [TestCaseSource(typeof(MyDataClass), "PriceQueryTestCases")]
+        [Test]
+        public void find_the_price_given_an_item_code(string itemCode, double unitPrice)
+        {
+            Check.That(
+                priceQuery.FindPrice(itemCode)
+            ).IsEqualTo(Price.ValueOf(unitPrice));
+        }
+
+        [TestCaseSource(typeof(MyDataClass), "PriceQueryNullTestCases")]
+        [Test]
+        public void find_the_price_given_an_null_item_code(string itemCode, double unitPrice)
+        {
+            Check.That(
+                priceQuery.FindPrice(itemCode)
+            ).IsNull();
         }
     }
 }

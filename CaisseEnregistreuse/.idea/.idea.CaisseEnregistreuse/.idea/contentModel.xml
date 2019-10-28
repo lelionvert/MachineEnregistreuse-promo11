@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\lenovo 3\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
@@ -30,6 +30,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="CaisseEnregistreuse.Test.cs" t="Include" />
         <e p="CaisseEnregistreuse.Test.csproj" t="IncludeRecursive" />
+        <e p="InMemoryCatalog.cs" t="Include" />
+        <e p="IPriceQuery.cs" t="Include" />
+        <e p="ItemReference.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
