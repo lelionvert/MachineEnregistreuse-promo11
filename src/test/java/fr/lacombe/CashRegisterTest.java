@@ -35,7 +35,7 @@ class CashRegisterTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {2.3, 5.4, 2, 0, 7.9})
+    @ValueSource(doubles = {2.3, 5.4, 2})
     void test_flyweight(double value) {
         Assertions.assertSame(Price.valueOf(value), Price.valueOf(value));
     }
