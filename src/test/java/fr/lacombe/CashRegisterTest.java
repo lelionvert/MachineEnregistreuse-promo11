@@ -35,7 +35,7 @@ public class CashRegisterTest
     }
 
     @Test
-    public void quantity_creation() {
+    public void total_with_quantity_concept() {
         // Given
         double value = 1.20;
         Price price = Price.valueOf(value);
