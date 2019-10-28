@@ -7,7 +7,7 @@ class Quantity {
         this.value = value;
     }
 
-    static Quantity of(double value) {
+    static Quantity valueOf(double value) {
         return new Quantity(value);
     }
 
