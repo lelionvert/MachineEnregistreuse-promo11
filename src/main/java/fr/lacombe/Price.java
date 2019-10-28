@@ -16,7 +16,7 @@ final class Price {
 
     @Override
     public String toString() {
-        return "price=" + value;
+        return String.valueOf(value);
     }
 
     @Override
