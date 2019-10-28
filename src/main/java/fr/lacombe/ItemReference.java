@@ -12,4 +12,8 @@ public class ItemReference {
     public Price getPrice() {
         return price;
     }
+
+    public String getName() {
+        return name;
+    }
 }

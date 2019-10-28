@@ -60,4 +60,14 @@ public class CashRegisterTest {
 
         Assertions.assertThat(priceQuery.findPrice(itemCode)).isEqualTo(Price.valueOf(1.20));
     }
+
+    @Test
+    public void find_the_price_given_two_item_code() {
+        ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
+        ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
+        String itemCode = "BANANA";
+        PriceQuery priceQuery = new PriceQuery(apple, banana);
+
+        Assertions.assertThat(priceQuery.findPriceList(itemCode)).isEqualTo(Price.valueOf(1.90));
+    }
 }
