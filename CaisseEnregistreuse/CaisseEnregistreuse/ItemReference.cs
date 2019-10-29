@@ -24,29 +24,33 @@ namespace CaisseEnregistreuse
             return _name == name;
         }
 
-        public static Builder Reference()
+        public static ItemReferenceBuilder Builder()
         {
-            return new Builder();
+            return new ItemReferenceBuilder();
         }
 
-        public sealed class Builder
+        public sealed class ItemReferenceBuilder
         {
 
             private string _itemCode;
             private Price _unitPrice;
+            
+            internal ItemReferenceBuilder()
+            {
+            }
 
-            public Builder WithItemCode(string itemCode)
+            public ItemReferenceBuilder WithItemCode(string itemCode)
             {
                 this._itemCode = itemCode;
                 return this;
             }
 
-            public Builder WithUnitPrice(double unitPrice)
+            public ItemReferenceBuilder WithUnitPrice(double unitPrice)
             {
                 return WithUnitPrice(Price.ValueOf(unitPrice));
             }
 
-            Builder WithUnitPrice(Price unitPrice)
+            ItemReferenceBuilder WithUnitPrice(Price unitPrice)
             {
                 this._unitPrice = unitPrice;
                 return this;

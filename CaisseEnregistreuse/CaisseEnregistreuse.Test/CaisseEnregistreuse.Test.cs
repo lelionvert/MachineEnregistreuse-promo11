@@ -41,11 +41,11 @@ namespace CaisseEnregistreuse
         public void Setup()
         {
             priceQuery = new InMemoryCatalog(
-                ItemReference.Reference()
+                ItemReference.Builder()
                     .WithItemCode("APPLE")
                     .WithUnitPrice(1.20)
                     .Build(),
-                ItemReference.Reference()
+                ItemReference.Builder()
                     .WithItemCode("BANANA")
                     .WithUnitPrice(1.90)
                     .Build()
@@ -58,8 +58,6 @@ namespace CaisseEnregistreuse
             var result = CaisseEnregistreuse.Total(price, quantity);
             Check.That(result).IsEqualTo(expected);
         }
-        
-        
 
         [TestCaseSource(typeof(MyDataClass), "PriceQueryTestCases")]
         [Test]
