@@ -12,7 +12,7 @@ public abstract class Result {
         return new NotFound(itemCode);
     }
 
-    public abstract Result map(UnaryOperator<Price> f);
+    public abstract Result map(UnaryOperator<Price> function);
 
     private static class Found extends Result {
         private final Price price;
@@ -21,8 +21,8 @@ public abstract class Result {
             this.price = price;
         }
 
-        public Result map(UnaryOperator<Price> f) {
-            return found(f.apply(this.price));
+        public Result map(UnaryOperator<Price> function) {
+            return found(function.apply(this.price));
         }
 
         @Override
@@ -53,7 +53,7 @@ public abstract class Result {
             this.itemCode = itemCode;
         }
 
-        public Result map(UnaryOperator<Price> f) {
+        public Result map(UnaryOperator<Price> function) {
             return this;
         }
 
