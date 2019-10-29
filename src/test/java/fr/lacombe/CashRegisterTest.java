@@ -51,6 +51,18 @@ public class CashRegisterTest {
         Assertions.assertThat(priceQuery.findPrice(item_code)).isEqualTo(unit_price);
     }
 
+    private Object[] parametersForFind_the_price_given_one_item_code_with_Result_concept() {
+        return new Object[][]{
+                {"APPLE", Price.valueOf(1.20)},
+                {"BANANA", Price.valueOf(1.90)}
+        };
+    }
+    @Test
+    @Parameters
+    public void find_the_price_given_one_item_code_with_Result_concept(String item_code, Price unit_price) {
+        Assertions.assertThat(priceQuery.findPrice(item_code)).isEqualTo(Result.found(unit_price));
+    }
+
     @Test
     public void search_an_unknow_item() {
         Assertions.assertThat(priceQuery.findPrice("PEACH")).isNull();

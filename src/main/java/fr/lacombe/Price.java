@@ -28,7 +28,7 @@ public class Price {
 
     @Override
     public String toString() {
-        return "Price { price=" + price + '}';
+        return "Price {" + price + '}';
     }
 
     Price multiplyBy(Quantity quantity) {
