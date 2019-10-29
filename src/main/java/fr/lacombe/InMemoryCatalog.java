@@ -15,20 +15,16 @@ class InMemoryCatalog implements PriceQuery {
     @Override
     public Result findPrice(String itemCode) {
         return reduce(Result.notFound(itemCode),
-                (Result result, ItemReference itemReference) -> {
-                    if (itemReference.matchSoughtItem(itemCode)) {
-                        return Result.found(itemReference.getPrice());
-                    } else {
-                        return result;
-                    }
-                }, itemReferences);
+                (Result result, ItemReference itemReference) ->
+                        itemReference.matchSoughtItem(itemCode) ? Result.found(itemReference.getPrice()) : result,
+                itemReferences);
     }
 
-    private <T, R> T reduce(T defaultValue, BiFunction<T, R, T> accumulator, Collection<R> collection) {
-        T result = defaultValue;
+    private <T, R> T reduce(T defaultValue, BiFunction<T, R, T> reducer, Collection<R> collection) {
+        T accumulator = defaultValue;
         for (R element : collection) {
-            result = accumulator.apply(result, element);
+            accumulator = reducer.apply(accumulator, element);
         }
-        return result;
+        return accumulator;
     }
 }
