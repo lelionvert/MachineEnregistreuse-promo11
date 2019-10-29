@@ -8,8 +8,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitParamsRunner.class)
 public class CashRegisterTest {
+    private ItemReference apple = ItemReference.reference().withName("APPLE").withPrice(1.20).build();
+    private ItemReference banana = ItemReference.reference().withName("BANANA").withPrice(1.90).build();
+    private ItemReference pineapple = ItemReference.reference().withName("PINEAPPLE").withPrice(2.50).build();
+    private PriceQuery priceQuery = new InmemoryCatalog(apple, banana, pineapple);
 
-    private Object[] parametersForCreate_cash_register_price_concept() {
+    private Object[] parametersForCalculate_total_amount_according_to_quantity() {
         return new Object[][]{
                 {Price.valueOf(-1.20), Quantity.valueOf(1.0), Price.valueOf(1.20)},
                 {Price.valueOf(1.20), Quantity.valueOf(0.0), Price.valueOf(0.0)},
@@ -19,10 +23,9 @@ public class CashRegisterTest {
                 {Price.valueOf(31257), Quantity.valueOf(.001), Price.valueOf(31.257)}
         };
     }
-
     @Test
     @Parameters
-    public void create_cash_register_price_concept(final Price price, final Quantity quantity, final Price expected) {
+    public void calculate_total_amount_according_to_quantity(final Price price, final Quantity quantity, final Price expected) {
         // Given
         CashRegister cash_register = new CashRegister();
 
@@ -33,25 +36,21 @@ public class CashRegisterTest {
         Assertions.assertThat(total).isEqualTo(expected);
     }
 
-    private ItemReference apple = ItemReference.reference().withName("APPLE").withPrice(1.20).build();
-    private ItemReference banana = ItemReference.reference().withName("BANANA").withPrice(1.90).build();
-    private PriceQuery priceQuery = new InmemoryCatalog(apple, banana);
-
-    private Object[] parametersForFind_the_price_given_one_item_code_with_Result_concept() {
+    private Object[] parametersForFound_the_price_given_an_item_code() {
         return new Object[][]{
                 {"APPLE", Price.valueOf(1.20)},
-                {"BANANA", Price.valueOf(1.90)}
+                {"BANANA", Price.valueOf(1.90)},
+                {"PINEAPPLE", Price.valueOf(2.50)}
         };
     }
     @Test
     @Parameters
-    public void find_the_price_given_one_item_code_with_Result_concept(String item_code, Price unit_price) {
+    public void found_the_price_given_an_item_code(final String item_code, final Price unit_price) {
         Assertions.assertThat(priceQuery.findPrice(item_code)).isEqualTo(Result.found(unit_price));
     }
 
     @Test
-    public void search_an_unknow_item() {
+    public void not_found_the_price_given_an_unknown_item_code() {
         Assertions.assertThat(priceQuery.findPrice("PEACH")).isEqualTo(Result.notFound("PEACH"));
     }
-
 }
