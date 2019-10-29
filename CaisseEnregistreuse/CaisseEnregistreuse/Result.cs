@@ -16,6 +16,8 @@ namespace CashRegister
 
         public abstract Result MultiplyBy(Quantity quantity);
 
+        public abstract Result Select(Func<Price, Price> f);
+
         internal sealed class NotFoundResult : Result
         {
             private readonly string _itemCode;
@@ -41,6 +43,11 @@ namespace CashRegister
             public override Result MultiplyBy(Quantity quantity)
             {
                 return new NotFoundResult(_itemCode);
+            }
+
+            public override Result Select(Func<Price, Price> f)
+            {
+                return this;
             }
 
             public override string ToString()
@@ -79,6 +86,11 @@ namespace CashRegister
             public override Result MultiplyBy(Quantity quantity)
             {
                 return new FoundResult(_unitPrice * quantity);
+            }
+
+            public override Result Select(Func<Price, Price> f)
+            {
+                return new FoundResult(f(_unitPrice));
             }
         }
     }

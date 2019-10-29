@@ -12,7 +12,7 @@ namespace CashRegister
         
         public static Result Total(Result result, Quantity quantity)
         {
-            return result.MultiplyBy(quantity);
+            return result.Select(price => price * quantity);
         }
     }
 }
