@@ -2,7 +2,6 @@ package fr.lacombe;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 class InMemoryCatalog implements PriceQuery {
     private final List<ItemReference> itemReferences;
@@ -13,11 +12,11 @@ class InMemoryCatalog implements PriceQuery {
 
     @Override
     public Result findPrice(String itemCode) {
-        return itemReferences.stream()
-                .map(itemReference -> itemReference.getPriceByCode(itemCode))
-                .filter(Objects::nonNull)
-                .findFirst()
-                .map(Result::found)
-                .orElse(Result.notFound(itemCode));
+        for (ItemReference itemReference : itemReferences) {
+            if (itemReference.matchSoughtItem(itemCode)) {
+                return Result.found(itemReference.getPrice());
+            }
+        }
+        return Result.notFound(itemCode);
     }
 }

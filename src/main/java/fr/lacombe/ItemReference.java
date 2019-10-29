@@ -13,11 +13,12 @@ class ItemReference {
         return new Builder();
     }
 
-    Price getPriceByCode(String itemCode) {
-        if (this.itemCode.equals(itemCode)) {
-            return itemPrice;
-        }
-        return null;
+    boolean matchSoughtItem(String itemCode) {
+        return this.itemCode.equals(itemCode);
+    }
+
+    Price getPrice() {
+        return itemPrice;
     }
 
     static final class Builder {
