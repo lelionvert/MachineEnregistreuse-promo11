@@ -13,7 +13,7 @@ public class ItemReference {
         return price;
     }
 
-    public String getName() {
-        return name;
+    public boolean checkSameCode(String itemCode) {
+        return itemCode.equals(this.name);
     }
 }
