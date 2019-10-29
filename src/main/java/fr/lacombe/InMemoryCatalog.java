@@ -2,6 +2,7 @@ package fr.lacombe;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiFunction;
 
 class InMemoryCatalog implements PriceQuery {
     private final List<ItemReference> itemReferences;
@@ -12,11 +13,22 @@ class InMemoryCatalog implements PriceQuery {
 
     @Override
     public Result findPrice(String itemCode) {
+        return reduce(Result.notFound(itemCode),
+                (Result result, ItemReference itemReference) -> {
+                    if (itemReference.matchSoughtItem(itemCode)) {
+                        return Result.found(itemReference.getPrice());
+                    } else {
+                        return result;
+                    }
+                }, itemReferences);
+    }
+
+    private Result reduce(Result notFound, BiFunction<Result, ItemReference, Result> accumulator,
+                          List<ItemReference> itemReferences) {
+        Result result = notFound;
         for (ItemReference itemReference : itemReferences) {
-            if (itemReference.matchSoughtItem(itemCode)) {
-                return Result.found(itemReference.getPrice());
-            }
+            result = accumulator.apply(result, itemReference);
         }
-        return Result.notFound(itemCode);
+        return result;
     }
 }
