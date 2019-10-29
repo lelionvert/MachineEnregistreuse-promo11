@@ -13,6 +13,14 @@ public class Price {
         return new Price(roundTwoDecimals(value));
     }
 
+    Price multiplyBy(Quantity quantity) {
+        return valueOf(quantity.multiply(price));
+    }
+
+    private static double roundTwoDecimals(double value) {
+        return Math.round(value * 100d) / 100d;
+    }
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
@@ -29,13 +37,5 @@ public class Price {
     @Override
     public String toString() {
         return "Price {" + price + '}';
-    }
-
-    Price multiplyBy(Quantity quantity) {
-        return valueOf(quantity.multiply(price));
-    }
-
-    private static double roundTwoDecimals(double value) {
-        return Math.round(value * 100d) / 100d;
     }
 }

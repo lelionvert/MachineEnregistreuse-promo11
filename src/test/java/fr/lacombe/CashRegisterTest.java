@@ -3,6 +3,7 @@ package fr.lacombe;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.assertj.core.api.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,29 +14,6 @@ public class CashRegisterTest {
     private ItemReference pineapple = ItemReference.reference().withName("PINEAPPLE").withPrice(2.50).build();
     private PriceQuery priceQuery = new InmemoryCatalog(apple, banana, pineapple);
 
-    private Object[] parametersForCalculate_total_amount_according_to_quantity() {
-        return new Object[][]{
-                {Price.valueOf(-1.20), Quantity.valueOf(1.0), Price.valueOf(1.20)},
-                {Price.valueOf(1.20), Quantity.valueOf(0.0), Price.valueOf(0.0)},
-                {Price.valueOf(1.20), Quantity.valueOf(1.0), Price.valueOf(1.20)},
-                {Price.valueOf(1.20), Quantity.valueOf(2.0), Price.valueOf(2.40)},
-                {Price.valueOf(1.20), Quantity.valueOf(5.0), Price.valueOf(6.00)},
-                {Price.valueOf(31257), Quantity.valueOf(.001), Price.valueOf(31.257)}
-        };
-    }
-    @Test
-    @Parameters
-    public void calculate_total_amount_according_to_quantity(final Price price, final Quantity quantity, final Price expected) {
-        // Given
-        CashRegister cash_register = new CashRegister();
-
-        // When
-        Price total = cash_register.total(price, quantity);
-
-        // Then
-        Assertions.assertThat(total).isEqualTo(expected);
-    }
-
     private Object[] parametersForFound_the_price_given_an_item_code() {
         return new Object[][]{
                 {"APPLE", Price.valueOf(1.20)},
@@ -43,6 +21,7 @@ public class CashRegisterTest {
                 {"PINEAPPLE", Price.valueOf(2.50)}
         };
     }
+
     @Test
     @Parameters
     public void found_the_price_given_an_item_code(final String item_code, final Price unit_price) {
@@ -52,5 +31,38 @@ public class CashRegisterTest {
     @Test
     public void not_found_the_price_given_an_unknown_item_code() {
         Assertions.assertThat(priceQuery.findPrice("PEACH")).isEqualTo(Result.notFound("PEACH"));
+    }
+
+    private Object[] parametersForTotal_is_product_of_quantity_by_item_price_corresponding_to_existing_item_code() {
+        return new Object[][]{
+                {"BANANA", Quantity.valueOf(10.0), Price.valueOf(19.00)},
+                {"APPLE", Quantity.valueOf(2.0), Price.valueOf(2.40)},
+                {"PINEAPPLE", Quantity.valueOf(3.0), Price.valueOf(7.50)}
+        };
+    }
+
+    @Test
+    @Parameters
+    public void total_is_product_of_quantity_by_item_price_corresponding_to_existing_item_code(final String itemCode, final Quantity quantity, final Price expected) {
+        // Given
+        CashRegister cash_register = new CashRegister();
+
+        // When
+        Result total = cash_register.total(priceQuery.findPrice(itemCode), quantity);
+
+        // Then
+        Assertions.assertThat(total).isEqualTo(Result.found(expected));
+    }
+
+    @Test
+    public void total_is_product_of_quantity_by_item_price_corresponding_to_existing_item_code_not_found() {
+        // Given
+        CashRegister cash_register = new CashRegister();
+
+        // When
+        Result total = cash_register.total(priceQuery.findPrice("PEACH"), Quantity.valueOf(2.0));
+
+        // Then
+        Assertions.assertThat(total).isEqualTo(Result.notFound("PEACH"));
     }
 }
