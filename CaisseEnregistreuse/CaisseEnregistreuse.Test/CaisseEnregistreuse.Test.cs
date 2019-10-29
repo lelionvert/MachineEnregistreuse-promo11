@@ -41,8 +41,14 @@ namespace CaisseEnregistreuse
         public void Setup()
         {
             priceQuery = new InMemoryCatalog(
-                new ItemReference("APPLE", 1.20),
-                new ItemReference("BANANA", 1.90)
+                ItemReference.Reference()
+                    .WithItemCode("APPLE")
+                    .WithUnitPrice(1.20)
+                    .Build(),
+                ItemReference.Reference()
+                    .WithItemCode("BANANA")
+                    .WithUnitPrice(1.90)
+                    .Build()
             );
         }
 
