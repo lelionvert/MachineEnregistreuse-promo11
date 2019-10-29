@@ -1,4 +1,4 @@
-﻿namespace CaisseEnregistreuse
+﻿namespace CashRegister
 {
     public class Quantity
     {

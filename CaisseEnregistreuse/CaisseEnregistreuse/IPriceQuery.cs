@@ -1,4 +1,4 @@
-﻿namespace CaisseEnregistreuse
+﻿namespace CashRegister
 {
     public interface IPriceQuery
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CaisseEnregistreuse
+namespace CashRegister
 {
     public class InMemoryCatalog : IPriceQuery
     {

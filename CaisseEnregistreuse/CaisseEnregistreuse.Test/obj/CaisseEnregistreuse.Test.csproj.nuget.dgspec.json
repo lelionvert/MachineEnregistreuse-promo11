@@ -1,34 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse.Test\\CaisseEnregistreuse.Test.csproj": {}
+    "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse.Test\\CaisseEnregistreuse.Test.csproj": {
+    "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse.Test\\CaisseEnregistreuse.Test.csproj",
+        "projectUniqueName": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.csproj",
         "projectName": "CaisseEnregistreuse.Test",
-        "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse.Test\\CaisseEnregistreuse.Test.csproj",
-        "packagesPath": "C:\\Users\\lenovo 3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse.Test\\obj\\",
+        "projectPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.csproj",
+        "packagesPath": "/Users/florian/.nuget/packages/",
+        "outputPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse.Test/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lenovo 3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/florian/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {
-                "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj"
+              "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj": {
+                "projectPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj"
               }
             }
           }
@@ -42,10 +43,6 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.2.0, )"
-            },
             "NFluent": {
               "target": "Package",
               "version": "[2.6.0, )"
@@ -68,28 +65,35 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {
+    "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj",
+        "projectUniqueName": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj",
         "projectName": "CaisseEnregistreuse",
-        "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj",
-        "packagesPath": "C:\\Users\\lenovo 3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\obj\\",
+        "projectPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj",
+        "packagesPath": "/Users/florian/.nuget/packages/",
+        "outputPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lenovo 3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/florian/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -114,7 +118,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

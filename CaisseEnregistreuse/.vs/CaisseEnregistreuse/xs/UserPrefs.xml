@@ -1,0 +1,48 @@
+﻿<Properties StartupConfiguration="{48888387-4AE4-460B-B231-9E442DEE204D}|Default">
+  <MonoDevelop.Ide.ItemProperties.CashRegister.Test FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs">
+    <Files>
+      <File FileName="CaisseEnregistreuse/Result.cs" Line="73" Column="2" />
+      <File FileName="CaisseEnregistreuse/Quantity.cs" Line="7" Column="36" />
+      <File FileName="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs" Line="37" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CaisseEnregistreuse" expanded="True">
+            <Node name="CaisseEnregistreuse" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="CaisseEnregistreuse.Test" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+                <Node name="ProjectDependencies" expanded="True">
+                  <Node name="CaisseEnregistreuse" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="CashRegister.Test" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="CaisseEnregistreuse" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

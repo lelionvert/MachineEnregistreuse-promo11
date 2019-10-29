@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CaisseEnregistreuse
+namespace CashRegister
 {
     public abstract class Result
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Schema;
 
-namespace CaisseEnregistreuse
+namespace CashRegister
 {
     public class CaisseEnregistreuse
     {

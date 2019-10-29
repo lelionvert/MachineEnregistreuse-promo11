@@ -3,7 +3,7 @@ using System.Collections;
 using NFluent;
 using NUnit.Framework;
 
-namespace CaisseEnregistreuse
+namespace CashRegister
 {
     public class MyDataClass
     {

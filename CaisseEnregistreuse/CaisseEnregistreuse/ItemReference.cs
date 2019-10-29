@@ -1,6 +1,6 @@
 ﻿using System.Collections.Immutable;
 
-namespace CaisseEnregistreuse
+namespace CashRegister
 {
     public class ItemReference
     {
