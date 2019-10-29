@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace CaisseEnregistreuse
 {
     public class InMemoryCatalog : IPriceQuery
     {
         private readonly ItemReference[] _itemReferences;
-        
+
         public InMemoryCatalog(params ItemReference[] references)
         {
             _itemReferences = references;
@@ -13,11 +14,27 @@ namespace CaisseEnregistreuse
 
         public Result FindPrice(string itemCode)
         {
-            var item = _itemReferences.SingleOrDefault(i => i.MatchByItemCode(itemCode));
+            return Aggragate(Result.NotFound(itemCode), (result, itemReference) =>
+            {
+                if (itemReference.MatchByItemCode(itemCode))
+                {
+                    return Result.Found(itemReference.Price);
+                }
+                else
+                {
+                    return result;
+                }
+            }, _itemReferences);
+        }
 
-            if (item != null)
-                return new Result.FoundResult(item.Price);
-            return new Result.NotFoundResult(itemCode);
+        private Result Aggragate(Result notFound, Func<Result, ItemReference, Result> func, ItemReference[] itemReferences)
+        {
+            var lambdaResult = notFound;
+            foreach (var itemReference in itemReferences)
+            {
+                lambdaResult = func(lambdaResult, itemReference);
+            }
+            return lambdaResult;
         }
     }
 }

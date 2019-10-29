@@ -7,22 +7,29 @@ namespace CaisseEnregistreuse
 {
     public class MyDataClass
     {
-        public static IEnumerable TestCases
-        {
-            get
-            {
-                yield return new TestCaseData(Price.ValueOf(1.20), Quantity.ValueOf(1), Price.ValueOf(1.20));
-                yield return new TestCaseData(Price.ValueOf(2.50), Quantity.ValueOf(3), Price.ValueOf(7.50));
-                yield return new TestCaseData(Price.ValueOf(12), Quantity.ValueOf(3), Price.ValueOf(36));
-            }
-        }
-
         public static IEnumerable PriceQueryTestCases
         {
             get
             {
                 yield return new TestCaseData("APPLE", 1.20);
                 yield return new TestCaseData("BANANA", 1.90);
+            }
+        }
+        
+        public static IEnumerable TotalResultFoundTestCases
+        {
+            get
+            {
+                yield return new TestCaseData("APPLE", 2, 1.20);
+                yield return new TestCaseData("BANANA", 3, 1.90);
+            }
+        }
+        
+        public static IEnumerable TotalResultNotFoundTestCases
+        {
+            get
+            {
+                yield return new TestCaseData("PEACH", 2, 1.20);
             }
         }
 
@@ -52,13 +59,6 @@ namespace CaisseEnregistreuse
             );
         }
 
-        [TestCaseSource(typeof(MyDataClass), "TestCases")]
-        public void TotalTest(Price price, Quantity quantity, Price expected)
-        {
-            var result = CaisseEnregistreuse.Total(price, quantity);
-            Check.That(result).IsEqualTo(expected);
-        }
-
         [TestCaseSource(typeof(MyDataClass), "PriceQueryTestCases")]
         [Test]
         public void find_the_price_given_an_item_code(string itemCode, double unitPrice)
@@ -75,6 +75,24 @@ namespace CaisseEnregistreuse
             Check.That(
                 priceQuery.FindPrice(itemCode)
             ).IsEqualTo(Result.NotFound(itemCode));
+        }
+        
+        [TestCaseSource(typeof(MyDataClass), "TotalResultFoundTestCases")]
+        [Test]
+        public void next_step_find_the_price_given_an_item_code(string itemCode, int quantity, double unitPrice)
+        {
+            Result total = CaisseEnregistreuse.Total(priceQuery.FindPrice(itemCode), Quantity.ValueOf(quantity));
+            
+            Check.That(total).IsEqualTo(Result.Found(Price.ValueOf(quantity * unitPrice)));
+        }
+        
+        [TestCaseSource(typeof(MyDataClass), "TotalResultNotFoundTestCases")]
+        [Test]
+        public void next_step_find_the_price_given_an_null_item_code(string itemCode, int quantity, double unitPrice)
+        {
+            Result total = CaisseEnregistreuse.Total(priceQuery.FindPrice(itemCode), Quantity.ValueOf(quantity));
+            
+            Check.That(total).IsEqualTo(Result.NotFound(itemCode));
         }
     }
 }

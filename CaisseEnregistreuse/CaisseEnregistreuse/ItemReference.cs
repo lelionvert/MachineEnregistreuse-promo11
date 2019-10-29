@@ -6,7 +6,7 @@ namespace CaisseEnregistreuse
     {
         private readonly string _name;
         public readonly Price Price;
-        
+
         public ItemReference(string name, double price)
         {
             _name = name;
@@ -31,13 +31,10 @@ namespace CaisseEnregistreuse
 
         public sealed class ItemReferenceBuilder
         {
-
             private string _itemCode;
             private Price _unitPrice;
-            
-            internal ItemReferenceBuilder()
-            {
-            }
+
+            internal ItemReferenceBuilder() {}
 
             public ItemReferenceBuilder WithItemCode(string itemCode)
             {

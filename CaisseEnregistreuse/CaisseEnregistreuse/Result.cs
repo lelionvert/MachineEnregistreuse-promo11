@@ -13,6 +13,8 @@ namespace CaisseEnregistreuse
         {
             return new NotFoundResult(itemCode);
         }
+        
+        
 
         internal sealed class NotFoundResult : Result
         {
@@ -39,6 +41,11 @@ namespace CaisseEnregistreuse
             public override string ToString()
             {
                 return base.ToString();
+            }
+            
+            public override Result Select(Func<Price, Price> func)
+            {
+                return this;
             }
         }
 
@@ -68,6 +75,13 @@ namespace CaisseEnregistreuse
             {
                 return base.ToString();
             }
+
+            public override Result Select(Func<Price, Price> func)
+            {
+                return Result.Found(func(_unitPrice));
+            }
         }
+
+        public abstract Result Select(Func<Price, Price> func);
     }
 }

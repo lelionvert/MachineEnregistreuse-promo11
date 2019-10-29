@@ -5,9 +5,9 @@ namespace CaisseEnregistreuse
 {
     public class CaisseEnregistreuse
     {
-        public static Price Total(Price price, Quantity quantity)
+        public static Result Total(Result result, Quantity quantity)
         {
-            return price * quantity;
+            return result.Select(price => price * quantity);
         }
     }
 }
