@@ -1,6 +1,7 @@
 package fr.lacombe;
 
 import java.util.Objects;
+import java.util.function.UnaryOperator;
 
 abstract class Result {
 
@@ -12,11 +13,18 @@ abstract class Result {
         return new NotFound(itemCode);
     }
 
+    abstract Result map(UnaryOperator<Price> function);
+
     private static class Found extends Result {
         private final Price unitPrice;
 
         private Found(Price unitPrice) {
             this.unitPrice = unitPrice;
+        }
+
+        @Override
+        Result map(UnaryOperator<Price> function) {
+            return Result.found(function.apply(unitPrice));
         }
 
         @Override
@@ -43,6 +51,11 @@ abstract class Result {
 
         private NotFound(String itemCode) {
             this.itemCode = itemCode;
+        }
+
+        @Override
+        Result map(UnaryOperator<Price> function) {
+            return this;
         }
 
         @Override
