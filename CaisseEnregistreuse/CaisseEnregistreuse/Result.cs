@@ -14,6 +14,8 @@ namespace CashRegister
             return new NotFoundResult(itemCode);
         }
 
+        public abstract Result MultiplyBy(Quantity quantity);
+
         internal sealed class NotFoundResult : Result
         {
             private readonly string _itemCode;
@@ -34,6 +36,11 @@ namespace CashRegister
             public override int GetHashCode()
             {
                 return _itemCode.GetHashCode();
+            }
+
+            public override Result MultiplyBy(Quantity quantity)
+            {
+                return new NotFoundResult(_itemCode);
             }
 
             public override string ToString()
@@ -67,6 +74,11 @@ namespace CashRegister
             public override string ToString()
             {
                 return base.ToString();
+            }
+
+            public override Result MultiplyBy(Quantity quantity)
+            {
+                return new FoundResult(_unitPrice * quantity);
             }
         }
     }

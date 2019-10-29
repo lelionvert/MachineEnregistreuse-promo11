@@ -2,14 +2,14 @@
 {
     public class Quantity
     {
-        private readonly int Value;
+        private readonly double Value;
 
-        private Quantity(int value)
+        private Quantity(double value)
         {
             Value = value;
         }
 
-        public static Quantity ValueOf(int value)
+        public static Quantity ValueOf(double value)
         {
             return new Quantity(value);
         }

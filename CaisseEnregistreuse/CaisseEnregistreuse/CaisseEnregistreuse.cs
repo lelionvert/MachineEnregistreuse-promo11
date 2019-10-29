@@ -9,5 +9,10 @@ namespace CashRegister
         {
             return price * quantity;
         }
+        
+        public static Result Total(Result result, Quantity quantity)
+        {
+            return result.MultiplyBy(quantity);
+        }
     }
 }

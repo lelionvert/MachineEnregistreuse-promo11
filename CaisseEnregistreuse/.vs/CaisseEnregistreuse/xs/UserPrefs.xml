@@ -1,10 +1,13 @@
 ﻿<Properties StartupConfiguration="{48888387-4AE4-460B-B231-9E442DEE204D}|Default">
-  <MonoDevelop.Ide.ItemProperties.CashRegister.Test FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs">
+  <MonoDevelop.Ide.ItemProperties.CashRegister.Test PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CaisseEnregistreuse/CaisseEnregistreuse.cs">
     <Files>
       <File FileName="CaisseEnregistreuse/Result.cs" Line="73" Column="2" />
-      <File FileName="CaisseEnregistreuse/Quantity.cs" Line="7" Column="36" />
-      <File FileName="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs" Line="37" Column="6" />
+      <File FileName="CaisseEnregistreuse/Quantity.cs" Line="12" Column="46" />
+      <File FileName="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs" Line="67" Column="37" />
+      <File FileName="CaisseEnregistreuse/IPriceQuery.cs" Line="7" Column="2" />
+      <File FileName="CaisseEnregistreuse/InMemoryCatalog.cs" Line="1" Column="1" />
+      <File FileName="CaisseEnregistreuse/CaisseEnregistreuse.cs" Line="16" Column="20" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,24 +17,32 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="FrameworkReferences" expanded="True" />
               </Node>
-            </Node>
-            <Node name="CaisseEnregistreuse.Test" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-                <Node name="ProjectDependencies" expanded="True">
-                  <Node name="CaisseEnregistreuse" selected="True" />
-                </Node>
-              </Node>
+              <Node name="CaisseEnregistreuse.cs" selected="True" />
             </Node>
             <Node name="CashRegister.Test" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="CaisseEnregistreuse" selected="True" />
+          <Node name="CaisseEnregistreuse" expanded="True">
+            <Node name="CashRegister.Test" expanded="True">
+              <Node name="CashRegister" expanded="True">
+                <Node name="Tests" expanded="True">
+                  <Node name="TotalTest(CashRegister" expanded="True">
+                    <Node name="Price,CashRegister" expanded="True" selected="True">
+                      <Node name="Quantity,CashRegister" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>

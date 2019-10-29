@@ -21,14 +21,14 @@ namespace CashRegister
         {
             get
             {
-                yield return new TestCaseData("APPLE", 1.20);
-                yield return new TestCaseData("BANANA", 1.90);
+                yield return new TestCaseData("APPLE", 1, 1.20);
+                yield return new TestCaseData("BANANA", 2, 1.90);
             }
         }
 
         public static IEnumerable PriceQueryNullTestCases
         {
-            get { yield return new TestCaseData("PEACH", 2.40); }
+            get { yield return new TestCaseData("PEACH", 10, 2.40); }
         }
     }
 
@@ -61,19 +61,29 @@ namespace CashRegister
 
         [TestCaseSource(typeof(MyDataClass), "PriceQueryTestCases")]
         [Test]
-        public void find_the_price_given_an_item_code(string itemCode, double unitPrice)
+        public void find_the_price_given_an_item_code(string itemCode, double quantity, double unitPrice)
         {
+            Result total = CaisseEnregistreuse.Total(
+                priceQuery.FindPrice(itemCode),
+                Quantity.ValueOf(quantity)
+                );
+
             Check.That(
-                priceQuery.FindPrice(itemCode)
-            ).IsEqualTo(Result.Found(Price.ValueOf(unitPrice)));
+                total
+            ).IsEqualTo(Result.Found(Price.ValueOf(quantity * unitPrice)));
         }
 
         [TestCaseSource(typeof(MyDataClass), "PriceQueryNullTestCases")]
         [Test]
-        public void find_the_price_given_an_null_item_code(string itemCode, double unitPrice)
+        public void find_the_price_given_an_null_item_code(string itemCode, double quantity, double unitPrice)
         {
+            Result total = CaisseEnregistreuse.Total(
+                priceQuery.FindPrice(itemCode),
+                Quantity.ValueOf(quantity)
+                );
+
             Check.That(
-                priceQuery.FindPrice(itemCode)
+                total
             ).IsEqualTo(Result.NotFound(itemCode));
         }
     }
