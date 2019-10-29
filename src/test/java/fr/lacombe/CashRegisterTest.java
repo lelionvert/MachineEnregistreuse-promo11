@@ -44,4 +44,13 @@ class CashRegisterTest {
         // Then
         assertThat(total).isEqualTo(Result.found(Price.valueOf(quantity * unitPrice)));
     }
+
+    @Test
+    void total_not_found_when_item_price_not_found() {
+        // When
+        Result total = cashRegister.total(priceQuery.findPrice("PEACH"), Quantity.valueOf(1));
+
+        // Then
+        assertThat(total).isEqualTo(Result.notFound("PEACH"));
+    }
 }
