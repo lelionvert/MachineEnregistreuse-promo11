@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static fr.lacombe.ItemReference.aBuilder;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
@@ -17,8 +18,8 @@ class PriceQueryTest {
     @BeforeEach
     void setUp() {
         priceQuery = new InMemoryCatalog(
-                ItemReference.createItemReference("APPLE", 1.2),
-                ItemReference.createItemReference("BANANA", 1.9)
+                aBuilder().withItemCode("APPLE").withItemPrice(1.2).build(),
+                aBuilder().withItemCode("BANANA").withItemPrice(1.9).build()
         );
     }
 

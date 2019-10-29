@@ -1,7 +1,5 @@
 package fr.lacombe;
 
-import java.util.Optional;
-
 class ItemReference {
     private final String itemCode;
     private final Price itemPrice;
@@ -11,8 +9,8 @@ class ItemReference {
         this.itemPrice = itemPrice;
     }
 
-    static ItemReference createItemReference(String itemCode, double itemPrice) {
-        return new ItemReference(itemCode, Price.valueOf(itemPrice));
+    static Builder aBuilder() {
+        return new Builder();
     }
 
     Price getPriceByCode(String itemCode) {
@@ -20,5 +18,27 @@ class ItemReference {
             return itemPrice;
         }
         return null;
+    }
+
+    static final class Builder {
+        private String itemCode;
+        private Price itemPrice;
+
+        private Builder() {
+        }
+
+        Builder withItemCode(String itemCode) {
+            this.itemCode = itemCode;
+            return this;
+        }
+
+        Builder withItemPrice(double itemPrice) {
+            this.itemPrice = Price.valueOf(itemPrice);
+            return this;
+        }
+
+        ItemReference build() {
+            return new ItemReference(itemCode, itemPrice);
+        }
     }
 }
