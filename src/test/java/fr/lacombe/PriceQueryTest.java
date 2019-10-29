@@ -33,11 +33,11 @@ class PriceQueryTest {
     @ParameterizedTest
     @MethodSource("itemPriceProvider")
     void find_the_price_given_an_item_code(String itemCode, Price unitPrice) {
-        assertThat(priceQuery.findPrice(itemCode)).isEqualTo(unitPrice);
+        assertThat(priceQuery.findPrice(itemCode)).isEqualTo(Result.found(unitPrice));
     }
 
     @Test
     void search_an_unknown_item() {
-        assertThat(priceQuery.findPrice("PEACH")).isNull();
+        assertThat(priceQuery.findPrice("PEACH")).isEqualTo(Result.notFound("PEACH"));
     }
 }
