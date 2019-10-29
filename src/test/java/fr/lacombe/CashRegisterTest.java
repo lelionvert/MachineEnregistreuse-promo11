@@ -33,23 +33,9 @@ public class CashRegisterTest {
         Assertions.assertThat(total).isEqualTo(expected);
     }
 
-
-    private Object[] parametersForFind_the_price_given_one_item_code() {
-        return new Object[][]{
-                {"APPLE", Price.valueOf(1.20)},
-                {"BANANA", Price.valueOf(1.90)}
-        };
-    }
-
     private ItemReference apple = ItemReference.reference().withName("APPLE").withPrice(1.20).build();
     private ItemReference banana = ItemReference.reference().withName("BANANA").withPrice(1.90).build();
     private PriceQuery priceQuery = new InmemoryCatalog(apple, banana);
-
-    @Test
-    @Parameters
-    public void find_the_price_given_one_item_code(String item_code, Price unit_price) {
-        Assertions.assertThat(priceQuery.findPrice(item_code)).isEqualTo(unit_price);
-    }
 
     private Object[] parametersForFind_the_price_given_one_item_code_with_Result_concept() {
         return new Object[][]{
