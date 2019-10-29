@@ -4,11 +4,11 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 public abstract class Result {
-    public static Found found(Price price) {
+    public static Result found(Price price) {
         return new Found(price);
     }
 
-    public static NotFound notFound(String itemCode) {
+    public static Result notFound(String itemCode) {
         return new NotFound(itemCode);
     }
 

@@ -2,13 +2,9 @@ package fr.lacombe;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import org.assertj.core.api.Assertions;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
