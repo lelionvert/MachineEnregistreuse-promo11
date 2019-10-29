@@ -65,7 +65,6 @@ namespace CaisseEnregistreuse
         {
             Check.That(
                 priceQuery.FindPrice(itemCode)
-                //).IsEqualTo(Result.Found(Price.ValueOf(unitPrice)));
             ).IsInstanceOf<Result.FoundResult>();
         }
 
@@ -75,7 +74,6 @@ namespace CaisseEnregistreuse
         {
             Check.That(
                 priceQuery.FindPrice(itemCode)
-                //).IsEqualTo(Result.NotFound(itemCode));
             ).IsInstanceOf<Result.NotFoundResult>();
         }
     }
