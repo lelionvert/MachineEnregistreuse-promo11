@@ -23,6 +23,7 @@ namespace CashRegister
             {
                 yield return new TestCaseData("APPLE", 1, 1.20);
                 yield return new TestCaseData("BANANA", 2, 1.90);
+                yield return new TestCaseData("PINEAPPLE", 1, 3.80);
             }
         }
 
@@ -48,6 +49,10 @@ namespace CashRegister
                 ItemReference.Builder()
                     .WithItemCode("BANANA")
                     .WithUnitPrice(1.90)
+                    .Build(),
+                ItemReference.Builder()
+                    .WithItemCode("PINEAPPLE")
+                    .WithUnitPrice(3.80)
                     .Build()
             );
         }

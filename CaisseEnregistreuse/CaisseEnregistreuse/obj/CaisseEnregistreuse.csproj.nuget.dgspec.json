@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {}
+    "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj": {
+    "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj",
+        "projectUniqueName": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj",
         "projectName": "CaisseEnregistreuse",
-        "projectPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\CaisseEnregistreuse.csproj",
-        "packagesPath": "C:\\Users\\lenovo 3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenovo 3\\Desktop\\MachineEnregistreuse-promo11\\CaisseEnregistreuse\\CaisseEnregistreuse\\obj\\",
+        "projectPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/CaisseEnregistreuse.csproj",
+        "packagesPath": "/Users/florian/.nuget/packages/",
+        "outputPath": "/Users/florian/Documents/katas/functionnal/CaisseEnregistreuse/CaisseEnregistreuse/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lenovo 3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/florian/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +47,13 @@
             "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

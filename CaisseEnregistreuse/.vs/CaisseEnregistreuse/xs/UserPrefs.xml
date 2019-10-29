@@ -1,13 +1,14 @@
-﻿<Properties StartupConfiguration="{48888387-4AE4-460B-B231-9E442DEE204D}|Default">
+﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.CashRegister.Test PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CaisseEnregistreuse/CaisseEnregistreuse.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CashRegister.Test/CaisseEnregistreuse.Test.cs">
     <Files>
-      <File FileName="CaisseEnregistreuse/Result.cs" Line="73" Column="2" />
+      <File FileName="CaisseEnregistreuse/Result.cs" Line="9" Column="35" />
       <File FileName="CaisseEnregistreuse/Quantity.cs" Line="12" Column="46" />
-      <File FileName="CaisseEnregistreuse.Test/CaisseEnregistreuse.Test.cs" Line="67" Column="37" />
       <File FileName="CaisseEnregistreuse/IPriceQuery.cs" Line="7" Column="2" />
-      <File FileName="CaisseEnregistreuse/InMemoryCatalog.cs" Line="1" Column="1" />
-      <File FileName="CaisseEnregistreuse/CaisseEnregistreuse.cs" Line="16" Column="20" NotebookId="1" />
+      <File FileName="CaisseEnregistreuse/InMemoryCatalog.cs" Line="14" Column="1" />
+      <File FileName="CashRegister.Test/CaisseEnregistreuse.Test.cs" Line="1" Column="1" />
+      <File FileName="CaisseEnregistreuse/CaisseEnregistreuse.cs" Line="10" Column="10" NotebookId="1" />
+      <File FileName="CaisseEnregistreuse/ItemReference.cs" Line="63" Column="10" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,13 +18,12 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="FrameworkReferences" expanded="True" />
               </Node>
-              <Node name="CaisseEnregistreuse.cs" selected="True" />
             </Node>
             <Node name="CashRegister.Test" expanded="True">
               <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
+              <Node name="CaisseEnregistreuse.Test.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -34,10 +34,8 @@
             <Node name="CashRegister.Test" expanded="True">
               <Node name="CashRegister" expanded="True">
                 <Node name="Tests" expanded="True">
-                  <Node name="TotalTest(CashRegister" expanded="True">
-                    <Node name="Price,CashRegister" expanded="True" selected="True">
-                      <Node name="Quantity,CashRegister" expanded="True" />
-                    </Node>
+                  <Node name="find_the_price_given_an_item_code(&quot;APPLE&quot;,1,1" expanded="True">
+                    <Node name="find_the_price_given_an_item_code(&quot;APPLE&quot;,1,1.2d)" selected="True" />
                   </Node>
                 </Node>
               </Node>

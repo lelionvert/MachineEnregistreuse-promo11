@@ -1,23 +1,27 @@
-﻿using System.Linq;
+﻿using System.Collections.Immutable;
+using System.Linq;
 
 namespace CashRegister
 {
     public class InMemoryCatalog : IPriceQuery
     {
-        private readonly ItemReference[] _itemReferences;
+        private readonly ImmutableArray<ItemReference> _itemReferences;
         
         public InMemoryCatalog(params ItemReference[] references)
         {
-            _itemReferences = references;
+            _itemReferences = references.ToImmutableArray();
         }
 
         public Result FindPrice(string itemCode)
         {
-            var item = _itemReferences.SingleOrDefault(i => i.MatchByItemCode(itemCode));
-
-            if (item != null)
-                return new Result.FoundResult(item.Price);
-            return new Result.NotFoundResult(itemCode);
+            return _itemReferences.Aggregate<Result, ItemReference>(
+                Result.NotFound(itemCode),
+                (Result result, ItemReference itemReference) =>
+                {
+                    if (itemReference.MatchByItemCode(itemCode))
+                        return Result.Found(itemReference.Price);
+                    return result;
+                });
         }
     }
 }
