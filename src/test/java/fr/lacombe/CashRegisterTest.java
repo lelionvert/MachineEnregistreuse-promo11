@@ -65,7 +65,7 @@ public class CashRegisterTest {
 
     @Test
     public void search_an_unknow_item() {
-        Assertions.assertThat(priceQuery.findPrice("PEACH")).isNull();
+        Assertions.assertThat(priceQuery.findPrice("PEACH")).isEqualTo(Result.notFound("PEACH"));
     }
 
 }

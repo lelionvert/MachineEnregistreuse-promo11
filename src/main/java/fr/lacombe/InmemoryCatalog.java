@@ -12,6 +12,6 @@ public class InmemoryCatalog implements PriceQuery {
             if (item.checkSameCode(itemCode))
                 return Result.found(item.getPrice());
         }
-        return Result.found(Price.valueOf(0));
+        return Result.notFound(itemCode);
     }
 }
