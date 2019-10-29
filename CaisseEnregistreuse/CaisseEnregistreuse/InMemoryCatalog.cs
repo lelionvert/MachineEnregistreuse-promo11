@@ -14,26 +14,21 @@ namespace CaisseEnregistreuse
 
         public Result FindPrice(string itemCode)
         {
-            return Aggragate(Result.NotFound(itemCode), (result, itemReference) =>
-            {
-                if (itemReference.MatchByItemCode(itemCode))
-                {
-                    return Result.Found(itemReference.Price);
-                }
-                else
-                {
-                    return result;
-                }
-            }, _itemReferences);
+            return Aggregate(Result.NotFound(itemCode),
+                (result, itemReference) =>
+                    itemReference.MatchByItemCode(itemCode) ? Result.Found(itemReference.Price) : result,
+                _itemReferences);
         }
 
-        private Result Aggragate(Result notFound, Func<Result, ItemReference, Result> func, ItemReference[] itemReferences)
+        private Result Aggregate(Result notFound, Func<Result, ItemReference, Result> func,
+            ItemReference[] itemReferences)
         {
             var lambdaResult = notFound;
             foreach (var itemReference in itemReferences)
             {
                 lambdaResult = func(lambdaResult, itemReference);
             }
+
             return lambdaResult;
         }
     }
