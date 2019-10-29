@@ -27,6 +27,7 @@
         </e>
         <e p="Price.cs" t="Include" />
         <e p="Quantity.cs" t="Include" />
+        <e p="Result.cs" t="Include" />
       </e>
       <e p="CaisseEnregistreuse.sln" t="IncludeFlat" />
       <e p="CaisseEnregistreuse.Test" t="IncludeRecursive">

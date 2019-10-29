@@ -11,11 +11,13 @@ namespace CaisseEnregistreuse
             _itemReferences = references;
         }
 
-        public Price FindPrice(string itemCode)
+        public Result FindPrice(string itemCode)
         {
             var item = _itemReferences.SingleOrDefault(i => i.MatchByItemCode(itemCode));
 
-            return item?.Price;
+            if (item != null)
+                return new Result.FoundResult(item.Price);
+            return new Result.NotFoundResult(itemCode);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IPriceQuery
     {
-        Price FindPrice(string itemCode);
+        Result FindPrice(string itemCode);
     }
 }
