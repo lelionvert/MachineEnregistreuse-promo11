@@ -1,6 +1,7 @@
 package fr.lacombe;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -23,11 +24,10 @@ class InMemoryCatalog implements PriceQuery {
                 }, itemReferences);
     }
 
-    private Result reduce(Result notFound, BiFunction<Result, ItemReference, Result> accumulator,
-                          List<ItemReference> itemReferences) {
-        Result result = notFound;
-        for (ItemReference itemReference : itemReferences) {
-            result = accumulator.apply(result, itemReference);
+    private <T, R> T reduce(T defaultValue, BiFunction<T, R, T> accumulator, Collection<R> collection) {
+        T result = defaultValue;
+        for (R element : collection) {
+            result = accumulator.apply(result, element);
         }
         return result;
     }
