@@ -3,8 +3,6 @@ package fr.lacombe;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.internal.bytebuddy.build.Plugin;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -37,14 +35,14 @@ public class CashRegisterTest {
 
 
     private Object[] parametersForFind_the_price_given_one_item_code() {
-        return new Object[][] {
+        return new Object[][]{
                 {"APPLE", Price.valueOf(1.20)},
                 {"BANANA", Price.valueOf(1.90)}
         };
     }
 
-    private ItemReference apple = new ItemReference("APPLE", Price.valueOf(1.20));
-    private ItemReference banana = new ItemReference("BANANA", Price.valueOf(1.90));
+    private ItemReference apple = ItemReference.reference().withName("APPLE").withPrice(1.20).build();
+    private ItemReference banana = ItemReference.reference().withName("BANANA").withPrice(1.90).build();
     private PriceQuery priceQuery = new InmemoryCatalog(apple, banana);
 
     @Test

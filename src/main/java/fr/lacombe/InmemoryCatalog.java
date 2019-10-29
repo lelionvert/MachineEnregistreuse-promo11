@@ -9,7 +9,7 @@ public class InmemoryCatalog implements PriceQuery {
 
     public Price findPrice(String itemCode) {
         for (ItemReference item : items) {
-            if(item.checkSameCode(itemCode))
+            if (item.checkSameCode(itemCode))
                 return item.getPrice();
         }
         return null;
