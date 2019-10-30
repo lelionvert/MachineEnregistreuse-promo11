@@ -19,8 +19,7 @@ namespace BankAccount.Test
             compte = Compte.CreateCompte();
 
             // Then
-            Check.That(compte.Balance).IsEqualTo(0);
-            Check.That(compte.Transactions).IsEmpty();
+            Check.That(compte.ReleveDeCompte()).IsEqualTo("DATE | AMOUNT | BALANCE");
         }
     }
 }

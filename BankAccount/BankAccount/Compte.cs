@@ -5,18 +5,24 @@ namespace BankAccount.Test
 {
     public sealed class Compte
     {
-        public int Balance { get; }
-        public List<TransactionBancaire> Transactions { get; }
+        private int Balance;
+        private List<TransactionBancaire> Transactions;
 
         public static Compte CreateCompte()
         {
-            return new Compte();
+            Compte compte = new Compte();
+            compte.Transactions = new List<TransactionBancaire>();
+            compte.Balance = 0;
+            return compte;
         }
 
         private Compte()
         {
-            Transactions = new List<TransactionBancaire>();
-            Balance = 0;
+        }
+
+        public string ReleveDeCompte()
+        {
+            return "DATE | AMOUNT | BALANCE";
         }
     }
 }
