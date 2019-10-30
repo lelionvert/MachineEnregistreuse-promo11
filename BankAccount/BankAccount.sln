@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount", "BankAccount\BankAccount.csproj", "{3D14F98E-4E91-42F7-BD71-A9290F003D85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.Test", "BankAccount.Test\BankAccount.Test.csproj", "{8BAFC4AA-469E-4C8B-B679-29A58CDA9686}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D14F98E-4E91-42F7-BD71-A9290F003D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D14F98E-4E91-42F7-BD71-A9290F003D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D14F98E-4E91-42F7-BD71-A9290F003D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D14F98E-4E91-42F7-BD71-A9290F003D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BAFC4AA-469E-4C8B-B679-29A58CDA9686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAFC4AA-469E-4C8B-B679-29A58CDA9686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAFC4AA-469E-4C8B-B679-29A58CDA9686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAFC4AA-469E-4C8B-B679-29A58CDA9686}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
