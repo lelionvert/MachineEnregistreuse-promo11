@@ -43,6 +43,8 @@ class CashRegisterTest {
 
         // Then
         assertThat(total).isEqualTo(Result.found(Price.valueOf(quantity * unitPrice)));
+
+        total.ifFound(System.out::println);
     }
 
     @Test
@@ -52,5 +54,7 @@ class CashRegisterTest {
 
         // Then
         assertThat(total).isEqualTo(Result.notFound("PEACH"));
+
+        total.ifNotFound(itemCode -> System.err.println(itemCode + " item not found"));
     }
 }
