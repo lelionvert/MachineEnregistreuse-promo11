@@ -1,26 +1,24 @@
 package fr.lacombe;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class InMemoryCatalog implements PriceQuery {
-    private final List<ItemReference> itemReferences;
+    private final Map<String, Price> unitPriceByItemCode;
 
     InMemoryCatalog(ItemReference... itemReferences) {
-        this.itemReferences = Arrays.asList(itemReferences);
+        this.unitPriceByItemCode = Stream.of(itemReferences)
+                .collect(Collectors.toMap(
+                        ItemReference::getItemCode,
+                        ItemReference::getItemPrice
+                ));
     }
 
     @Override
     public Result findPrice(String itemCode) {
-        return itemReferences.stream()
-                .filter(itemReference -> itemReference.matchSoughtItem(itemCode))
-                .findAny()
-                .map(ItemReference::getPrice)
-                .map(Result::found)
-                .orElse(Result.notFound(itemCode));
+        Price price = unitPriceByItemCode.get(itemCode);
+        return price != null ? Result.found(price) : Result.notFound(itemCode);
     }
 
 }

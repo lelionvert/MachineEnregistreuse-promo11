@@ -1,6 +1,7 @@
 package fr.lacombe;
 
 class ItemReference {
+
     private final String itemCode;
     private final Price itemPrice;
 
@@ -13,11 +14,11 @@ class ItemReference {
         return new Builder();
     }
 
-    boolean matchSoughtItem(String itemCode) {
-        return this.itemCode.equals(itemCode);
+    String getItemCode() {
+        return itemCode;
     }
 
-    Price getPrice() {
+    Price getItemPrice() {
         return itemPrice;
     }
 
