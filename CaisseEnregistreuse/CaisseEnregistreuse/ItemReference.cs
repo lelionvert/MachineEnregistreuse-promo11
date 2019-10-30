@@ -4,24 +4,24 @@ namespace CaisseEnregistreuse
 {
     public class ItemReference
     {
-        private readonly string _name;
+        public readonly string Name;
         public readonly Price Price;
 
         public ItemReference(string name, double price)
         {
-            _name = name;
+            Name = name;
             Price = Price.ValueOf(price);
         }
 
         private ItemReference(string itemCode, Price unitPrice)
         {
-            _name = itemCode;
+            Name = itemCode;
             Price = unitPrice;
         }
 
         public bool MatchByItemCode(string name)
         {
-            return _name == name;
+            return Name == name;
         }
 
         public static ItemReferenceBuilder Builder()

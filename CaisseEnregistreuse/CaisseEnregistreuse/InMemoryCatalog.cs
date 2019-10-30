@@ -1,24 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CaisseEnregistreuse
 {
     public class InMemoryCatalog : IPriceQuery
     {
-        private readonly ItemReference[] _itemReferences;
+        private readonly Dictionary<string, Price> _unitPriceByItemCode;
 
-        public InMemoryCatalog(params ItemReference[] references)
+        public InMemoryCatalog(params ItemReference[] itemReferences)
         {
-            _itemReferences = references;
+            _unitPriceByItemCode = itemReferences.ToDictionary(i => i.Name, i => i.Price);
         }
 
         public Result FindPrice(string itemCode)
         {
-            var result = _itemReferences
-                .Where(i => i.MatchByItemCode(itemCode))
-                .Select(i => Result.Found(i.Price))
-                .SingleOrDefault();
-            return result ?? Result.NotFound(itemCode);
+            return _unitPriceByItemCode.TryGetValue(itemCode, out Price price)
+                ? Result.Found(price)
+                : Result.NotFound(itemCode);
         }
     }
 }
