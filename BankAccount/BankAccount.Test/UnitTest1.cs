@@ -11,9 +11,13 @@ namespace BankAccount.Test
         }
 
         [Test]
-        public void Test1()
+        public void CreatedAccountMustBeInitializedWith0OnBalance()
         {
-            Check.That(true).IsTrue();
+            // Given / When
+            Compte compte = Compte.CreateCompte();
+            
+            // Then
+            Check.That(compte.Balance).IsEqualTo(0);
         }
     }
 }
