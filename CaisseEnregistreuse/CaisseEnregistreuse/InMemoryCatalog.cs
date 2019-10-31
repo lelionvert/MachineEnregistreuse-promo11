@@ -14,14 +14,11 @@ namespace CashRegister
 
         public Result FindPrice(string itemCode)
         {
-            return _itemReferences.Aggregate<Result, ItemReference>(
-                Result.NotFound(itemCode),
-                (Result result, ItemReference itemReference) =>
-                {
-                    if (itemReference.MatchByItemCode(itemCode))
-                        return Result.Found(itemReference.Price);
-                    return result;
-                });
+            var item = _itemReferences
+                .Where(itemReference => itemReference.MatchByItemCode(itemCode))
+                .Select(p => Result.Found(p.Price))
+                .SingleOrDefault();
+            return item ?? Result.NotFound(itemCode);
         }
     }
 }
